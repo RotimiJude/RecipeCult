@@ -10,7 +10,7 @@ export default function Create() {
   const [newIngredient, setNewIngredient]= useState('')
   const [ingredients, setIngredients] = useState([])
   const ingredientInput = useRef(null)
-  const {postData, data, error} = useFetch('http://localhost:3000/recipes', 'POST')
+  const { postData, data, error } = useFetch('https://json-server-production-cc88.up.railway.app/recipes', 'POST')
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
