@@ -4,7 +4,7 @@ import { useFetch } from '../../hooks/useFetch'
 
 export default function Recipe() {
   const { id } = useParams()
-  const url ='https://json-server-production-cc88.up.railway.app' + id
+  const url ='http://localhost:3000/recipes/' + id
   const {data:recipe, error, isPending}=useFetch(url)
   return (
     <>

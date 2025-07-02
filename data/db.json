@@ -61,7 +61,6 @@
       "method": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit minima voluptate perspiciatis neque accusamus nemo aperiam a provident! Provident dolores culpa doloremque similique sed suscipit.",
       "cookingTime": "48minutes"
     },
-   
     {
       "id": "04d0",
       "title": "Indomietie",
@@ -83,6 +82,17 @@
       ],
       "method": "blah blah blah",
       "cookingTime": "63 minutes"
+    },
+    {
+      "id": "a53f",
+      "title": "feefwj",
+      "ingredients": [
+        "lwfw",
+        "nfwlnfw'",
+        "nfwnfw"
+      ],
+      "method": "fkrwfkrw",
+      "cookingTime": "4 minutes"
     }
   ]
 }

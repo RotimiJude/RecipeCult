@@ -2,7 +2,7 @@ import RecipeList from "../../components/RecipeList"
 import { useFetch } from "../../hooks/useFetch"
 
 export default function Home() {
-    const{data, isPending, error} = useFetch('https://json-server-production-cc88.up.railway.app')
+    const{data, isPending, error} = useFetch('http://localhost:3000/recipes')
   return (
     <div>
         {error && <p>{error}</p>}

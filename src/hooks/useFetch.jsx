@@ -23,8 +23,7 @@ export const useFetch = (url, method = "GET") => {
       setIsPending(true)
       
       try {
-        const baseURL = "https://json-server-production-cc88.up.railway.app";
-const res = await fetch(baseURL + url, { ...fetchOptions, signal: controller.signal })
+        const res = await fetch(url, { ...fetchOptions, signal: controller.signal })
         if(!res.ok) {
           throw new Error(res.statusText)
         }
