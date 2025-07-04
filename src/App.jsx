@@ -4,11 +4,16 @@ import Create from './pages/create/Create';
 import Search from './pages/search/Search';
 import Recipe from './pages/recipe/Recipe';
 import Navbar from './components/Navbar';
+import ThemeSelector from './components/ThemeSelector';
+import { useTheme } from './hooks/useTheme';
+import './App.css'
 
 function App() {
+  const {mode} = useTheme()
   return (
-    <div className='App'>
+    <div className={`App ${mode}`}>
       <Navbar />
+      <ThemeSelector/>
       <div className='max-w-7xl px-6'>
         <Routes>
           <Route path="/" element={<Home />} />

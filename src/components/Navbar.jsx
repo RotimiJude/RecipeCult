@@ -2,10 +2,12 @@ import { Link } from "react-router-dom"
 import {Menu, X} from "lucide-react"
 import { useState, useContext } from "react"
 import Searchbar from "./Searchbar";
-import { ThemeContext } from "../context/ThemeContext";
+
+import { useTheme } from "../hooks/useTheme";
 
 export default function Navbar() {
-    const {color} = useContext(ThemeContext)
+    const {color} =useTheme()
+    
 
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
 
@@ -15,7 +17,7 @@ export default function Navbar() {
 
   return (
             <nav className=" py-3 border-b border-purple-500 bg-purple-700 text-white" style={{background:color}}>
-            <div className="container px-4 mx-auto relative text-sm">
+            <div  className="container px-4 mx-auto relative text-sm">
                 <div className="flex justify-between items-center flex-shrink-0">
                     <div className="flex items-center flex-shrink-0">
                     <span className="text-3xl tracking-wider text-white">
@@ -55,7 +57,7 @@ export default function Navbar() {
                 </div>
 
                 {mobileDrawerOpen && (
-                    <div className="fixed right-0 z-20 bg-purple-800 w-full p-12 flex flex-col justify-center items-center lg:hidden">
+                    <div className="fixed right-0 z-20 bg-purple-800 w-full p-12 flex flex-col justify-center items-center lg:hidden " style={{background:color}}>
                         <ul>
                             <li className="py-4">
                                 <Link to ="/">Home</Link>
