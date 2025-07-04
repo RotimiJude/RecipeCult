@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom"
 import {Menu, X} from "lucide-react"
-import { useState } from "react"
+import { useState, useContext } from "react"
 import Searchbar from "./Searchbar";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function Navbar() {
+    const {color} = useContext(ThemeContext)
 
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
 
@@ -12,11 +14,11 @@ export default function Navbar() {
     };
 
   return (
-            <nav className=" py-3 border-b border-purple-500 bg-purple-700 text-white">
+            <nav className=" py-3 border-b border-purple-500 bg-purple-700 text-white" style={{background:color}}>
             <div className="container px-4 mx-auto relative text-sm">
                 <div className="flex justify-between items-center flex-shrink-0">
                     <div className="flex items-center flex-shrink-0">
-                    <span className="text-3xl tracking-wider bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
+                    <span className="text-3xl tracking-wider text-white">
                         <Link to="/">RecipeHut</Link>
                     </span>
                 </div>

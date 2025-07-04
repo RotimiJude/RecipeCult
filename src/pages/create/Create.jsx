@@ -39,7 +39,7 @@ export default function Create() {
   setIngredients([]);
       navigate('/')
     }
-  },[data])
+  },[data, navigate])
   return (
     <div className="min-h-screen bg-cover flex justify-center items-center">
       <div className="w-[400px] md:w-[500px] duration-500 rounded-xl p-7 border border-slate-600  bg-slate-600">
@@ -52,6 +52,7 @@ export default function Create() {
             <input type="text" className="w-full border-0 outline-0 bg-transparent focus:placeholder-transparent peer tracking-widest font-bold text-white" placeholder="Recipe Name"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
+            required
             />
             {/* svg */}
             <svg className="size-10 text-gray-400 peer-focus:text-gray-600 duration-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -65,7 +66,8 @@ export default function Create() {
             <input type="text" className="w-full border-0 outline-0 bg-transparent focus:placeholder-transparent peer tracking-widest font-bold text-white" placeholder="Ingredients"
             onChange={(e) => setNewIngredient(e.target.value)}
             value={newIngredient}
-            ref={ingredientInput}/>
+            ref={ingredientInput}
+            required/>
             <button className="rounded-lg bg-purple-400 px-2 py-1 text-white font-semibold tracking-widest cursor-pointer" 
             onClick={handleAdd}>Add</button>
           </div>
@@ -77,7 +79,8 @@ export default function Create() {
             {/* input */}
             <input type="text" className="w-full border-0 outline-0 bg-transparent focus:placeholder-transparent peer tracking-widest font-bold text-white" placeholder="Recipe Method"
             onChange={(e) => setMethod(e.target.value)}
-            value={method}/>
+            value={method}
+            required/>
             {/* svg */}
             <svg className="size-10 text-gray-400 peer-focus:text-gray-600 duration-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
@@ -89,7 +92,8 @@ export default function Create() {
             {/* input */}
             <input type="number" className="w-full border-0 outline-0 bg-transparent focus:placeholder-transparent peer tracking-widest font-bold text-white" placeholder="Cooking Time (minutes)"
             onChange={(e) => setCookingTime(e.target.value)}
-            value={cookingTime}/>
+            value={cookingTime}
+            required/>
             {/* svg */}
             <svg className="size-10 text-gray-400 peer-focus:text-gray-600 duration-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
