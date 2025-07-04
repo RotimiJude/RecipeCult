@@ -42,7 +42,7 @@ export default function Create() {
   },[data, navigate])
   return (
     <div className="min-h-screen bg-cover flex justify-center items-center">
-      <div className="w-[400px] md:w-[500px] duration-500 rounded-xl p-7 border border-slate-600  bg-slate-600">
+      <div className="w-[400px] md:w-[500px] duration-500 rounded-xl p-7 border border-slate-600  bg-gray-600">
         <h3 className="text-3xl font-semibold my-3 text-center text-slate-200">Create Your Own Recipe </h3>
 
         <form className="flex flex-col my-5 space-y-7" onSubmit={handleSubmit}>
