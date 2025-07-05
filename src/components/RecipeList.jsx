@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom"
-import { CookingPot } from "lucide-react"
+import { CookingPot, Trash2 } from "lucide-react"
+import { projectFirestore } from "../firebase/config"
 
 export default function RecipeList({recipes}) {
+
+  if(recipes.length === 0){
+    <div className="error">No recipes to load...</div>
+  }
+  const handleClick = (id) =>{
+    projectFirestore.collection('recipes').doc(id).delete()
+  }
   return (
     <div className="relative  border-b border-purple-700 min-h-[800px]">
       <div className="text-center mb-8">
@@ -13,11 +21,14 @@ export default function RecipeList({recipes}) {
       key={recipe.id} 
       className="text-center items-center bg-white shadow-2xl rounded-lg border border-gray-300 p-6 transition-transform duration-300 hover:rotate-0 hover:-translate-y-1 hover:scale-110"
     >
-      <div className="flex justify-center">
-        <div className="mx-6 h-10 w-10 p-2 text-purple-600 justify-center items-center rounded-full">
+      <div className="flex justify-evenly space-x-5 items-center">
+        <div className="h-10 w-10 p-2 justify-center items-center rounded-full">
           <CookingPot />
         </div>
-        <h3 className="text-2xl text-center">{recipe.title}</h3>
+        <h3 className="text-2xl text-center text-purple-600 font-semibold">{recipe.title}</h3>
+        <div>
+        <Trash2 onClick={() => handleClick(recipe.id)} className="cursor-pointer" />
+        </div>
       </div>
       <p className="mt-1 mb-6 text-xl">{recipe.cookingTime} to make</p>
       <div className="text-md p-2 mb-2">{recipe.method.substring(0, 100)}...</div>

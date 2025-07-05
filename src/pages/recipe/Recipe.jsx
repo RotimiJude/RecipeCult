@@ -1,11 +1,35 @@
 import {useParams} from 'react-router-dom'
 import { useFetch } from '../../hooks/useFetch'
+import { useEffect, useState } from 'react'
+import { projectFirestore } from '../../firebase/config'
 
 
 export default function Recipe() {
   const { id } = useParams()
-  const url ='http://localhost:3000/recipes/' + id
-  const {data:recipe, error, isPending}=useFetch(url)
+  const[recipe, setRecipe] = useState(null)
+  const[isPending, setIsPending] = useState(false)
+  const[error, setError]=useState(false)
+
+  useEffect(() => {
+    setIsPending(true)
+
+    projectFirestore.collection('recipes').doc(id).get().then((doc) => 
+    {
+      
+      if (doc.exists){
+        setIsPending(false)
+        setRecipe(doc.data())
+      } else{
+        setIsPending(false)
+        setError('could not find the recipe')
+      }
+    })
+  }, [id])
+  const handleClick = (id) =>{
+    projectFirestore.collection('recipes').doc(id).update({
+      title: 'something completely different'
+    })
+  }
   return (
     <>
      <div className="max-w-lg mx-auto mt-2 p-6 bg-white shadow-lg rounded-lg border mb-5">

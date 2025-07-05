@@ -8,7 +8,7 @@ export default function Home() {
   const[error, setError]=useState(false)
     useEffect(()=>{
       setIsPending(true)
-      projectFirestore.collection('recipes').get().then((snapshot) => {
+      const unsub = projectFirestore.collection('recipes').onSnapshot((snapshot) => {
        if(snapshot.empty){
         setError('no recipes to load')
         setIsPending(false)
@@ -20,16 +20,17 @@ export default function Home() {
         setData(results)
         setIsPending(false)
        }
-      }).catch(err => {
+      }, (err) => {
         setError(err.message)
         setIsPending(false)
       })
+      return () => unsub()
 
     }, [])
   return (
     <div>
         {error && <p>{error}</p>}
-        {isPending && <p>{isPending}</p>}
+        {isPending && <p className="text-center text-white">Loading...</p>}
         {data && <RecipeList recipes={data}/>}
 
     </div>

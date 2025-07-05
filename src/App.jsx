@@ -11,7 +11,7 @@ import './App.css'
 function App() {
   const {mode} = useTheme()
   return (
-    <div className={`App ${mode}`}>
+    <div className={`App ${mode} min-h-screen`}>
       <Navbar />
       <ThemeSelector/>
       <div className='max-w-7xl px-6'>
