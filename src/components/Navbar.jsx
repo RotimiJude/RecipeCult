@@ -38,9 +38,9 @@ export default function Navbar() {
 
 
                 <div className="hidden lg:flex justify-center space-x-12 items-center text-2xl">
-                    <span className="py-2 px-3 border rounded-md">
+                    {/* <span className="py-2 px-3 border rounded-md">
                        <Searchbar/>
-                    </span>
+                    </span> */}
                     <span className=" py-2 px-3 border rounded-md hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition duration-500 tracking-widest">
                         <Link to="/create">Create Recipe</Link>
                     </span>
@@ -69,9 +69,9 @@ export default function Navbar() {
                         </ul>
 
                         <div className="flex space-x-6 mt-10">
-                        <span className="py-2 px-3 border rounded-md">
+                        {/* <span className="py-2 px-3 border rounded-md">
                         <Searchbar/>
-                    </span>
+                    </span> */}
                     <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-3 rounded-md">
                         <Link to="/create">Create Recipe</Link>
                     </span>
